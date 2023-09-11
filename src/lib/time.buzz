@@ -1,11 +1,12 @@
 export object DateTime {
     int unixTimestamp
+    str timezone = "UTC"
 
-    static fun now() > DateTime {
+    static fun now(str timezone = "UTC") > DateTime {
         | Implementation to get current date and time
     }
 
-    static fun parse(str datetime) > DateTime !> ParseError {
+    static fun parse(str datetime, str timezone = "UTC") > DateTime !> ParseError {
         | Implementation to parse a string into a DateTime object
     }
 
@@ -102,4 +103,54 @@ export enum DateUnit {
     Day,
     Month,
     Year
+}
+
+
+export object Time {
+    int hour
+    int minute
+    int second
+    int millisecond
+
+    static fun now() > Time {
+        | Implementation to get current time
+    }
+
+    static fun parse(str time) > Time !> ParseError {
+        | Implementation to parse a string into a Time object
+    }
+
+    fun format(str format) > str {
+        | Implementation to format the Time object into a string
+    }
+
+    fun add(int value, TimeUnit unit) > Time {
+        | Implementation to add a certain amount of time to the Time object
+    }
+
+    fun subtract(int value, TimeUnit unit) > Time {
+        | Implementation to subtract a certain amount of time from the Time object
+    }
+
+    fun isBefore(Time other) > bool {
+        | Implementation to check if the Time object is before another Time object
+    }
+
+    fun isAfter(Time other) > bool {
+        | Implementation to check if the Time object is after another Time object
+    }
+
+    fun isSame(Time other) > bool {
+        | Implementation to check if the Time object is the same as another Time object
+    }
+
+    fun diff(Time other, TimeUnit unit) > int {
+        | Implementation to get the difference between the Time object and another Time object
+    }
+}
+
+export enum TimeUnit {
+    Second,
+    Minute,
+    Hour
 }
