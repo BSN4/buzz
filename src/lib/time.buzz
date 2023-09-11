@@ -1,0 +1,105 @@
+export object DateTime {
+    int unixTimestamp
+
+    static fun now() > DateTime {
+        | Implementation to get current date and time
+    }
+
+    static fun parse(str datetime) > DateTime !> ParseError {
+        | Implementation to parse a string into a DateTime object
+    }
+
+    fun format(str format) > str {
+        | Implementation to format the DateTime object into a string
+    }
+
+    fun add(int value, TimeUnit unit) > DateTime {
+        | Implementation to add a certain amount of time to the DateTime object
+    }
+
+    fun subtract(int value, TimeUnit unit) > DateTime {
+        | Implementation to subtract a certain amount of time from the DateTime object
+    }
+
+    fun isBefore(DateTime other) > bool {
+        | Implementation to check if the DateTime object is before another DateTime object
+    }
+
+    fun isAfter(DateTime other) > bool {
+        | Implementation to check if the DateTime object is after another DateTime object
+    }
+
+    fun isSame(DateTime other) > bool {
+        | Implementation to check if the DateTime object is the same as another DateTime object
+    }
+
+    fun diff(DateTime other, TimeUnit unit) > int {
+        | Implementation to get the difference between the DateTime object and another DateTime object
+    }
+
+    fun toDate() > Date {
+        | Implementation to convert the DateTime object to a Date object
+    }
+
+    fun toTime() > Time {
+        | Implementation to convert the DateTime object to a Time object
+    }
+}
+
+export enum TimeUnit {
+    Second,
+    Minute,
+    Hour,
+    Day,
+    Week,
+    Month,
+    Year
+}
+
+export object Date {
+    int day
+    int month
+    int year
+
+    static fun today() > Date {
+        | Implementation to get current date
+    }
+
+    static fun parse(str date) > Date !> ParseError {
+        | Implementation to parse a string into a Date object
+    }
+
+    fun format(str format) > str {
+        | Implementation to format the Date object into a string
+    }
+
+    fun add(int value, DateUnit unit) > Date {
+        | Implementation to add a certain amount of time to the Date object
+    }
+
+    fun subtract(int value, DateUnit unit) > Date {
+        | Implementation to subtract a certain amount of time from the Date object
+    }
+
+    fun isBefore(Date other) > bool {
+        | Implementation to check if the Date object is before another Date object
+    }
+
+    fun isAfter(Date other) > bool {
+        | Implementation to check if the Date object is after another Date object
+    }
+
+    fun isSame(Date other) > bool {
+        | Implementation to check if the Date object is the same as another Date object
+    }
+
+    fun diff(Date other, DateUnit unit) > int {
+        | Implementation to get the difference between the Date object and another Date object
+    }
+}
+
+export enum DateUnit {
+    Day,
+    Month,
+    Year
+}
